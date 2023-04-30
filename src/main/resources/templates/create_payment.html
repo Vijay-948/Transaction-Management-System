@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Transaction Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Transaction Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/payments}">Transaction Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New Payment </h1>
+            <div class = "card-body">
+                <form th:action="@{/payments}" th:object = "${payment}" method="POST">
+                    <div class ="form-group">
+                        <label> Payment First Name </label>
+                        <input
+                                type = "text"
+                                name = "firstName"
+                                th:field = "*{firstName}"
+                                class = "form-control"
+                                placeholder="Enter Payment First Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Payment Last Name </label>
+                        <input
+                                type = "text"
+                                name = "lastName"
+                                th:field = "*{lastName}"
+                                class = "form-control"
+                                placeholder="Enter Payment Last Name"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Payment Type</label>
+                        <input type = "text"
+                               name = "type"
+                               th:field = "*{type}"
+                               class = "form-control"
+                               placeholder="Enter Payment Type"
+
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Card Name</label>
+                        <input type = "text"
+                               name = "cardName"
+                               th:field = "*{cardName}"
+                               class = "form-control"
+                               placeholder="Enter Payment CardName"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Card Number</label>
+                        <input type = "number"
+                               name = "cardNumber"
+                               th:field = "*{cardNumber}"
+                               class = "form-control"
+                               placeholder="Enter 12-Digit CardNumber"
+
+                        />
+                    </div>
+                    <div class="from-group">
+                        <label>Payment Expiry Year</label>
+                        <input type = "number"
+                               name = "expiryYear"
+                               th:field = "*{expiryYear}"
+                               class = "form-control"
+                               placeholder="Enter Card ExpiryYear"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Expiry Month</label>
+                        <input type = "number"
+                               name = "expiryMonth"
+                               th:field = "*{expiryMonth}"
+                               class = "form-control"
+                               placeholder="Enter Card ExpiryMonth"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Payment CVC</label>
+                        <input
+                                type = "number"
+                                name = "cvc"
+                                th:field = "*{cvc}"
+                                class = "form-control"
+                                placeholder="Enter Card cvc"
+                        />
+                    </div>
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
